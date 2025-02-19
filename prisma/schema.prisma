@@ -7,27 +7,26 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model User {
   id       String @id @default(uuid())
   email    String @unique
   name     String
   password String
+  Task     Task[]
 
   @@map("users")
-  Task Task[]
 }
 
-model Task{
-  id     String @id @default(uuid())
-  title  String
-  completed Boolean  @default(false)
-  status String @default("pending")
-  createAtt DateTime @default(now())
-  category String?
-
-  userId   String
-  user        User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+model Task {
+  id          String   @id @default(uuid())
+  title       String
+  createAtt   DateTime @default(now())
+  userId      String
+  completed   Boolean  @default(false)
+  category    String?
+  description String?
+  status      String   @default("pending")
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("tasks")
 }
