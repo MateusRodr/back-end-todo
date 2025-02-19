@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Put, Param, Delete, UseGuards, HttpStatus, HttpCode } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, UseGuards, HttpStatus, HttpCode, Req, UnauthorizedException } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -15,7 +15,10 @@ export class UsersController {
 
   @UseGuards(AuthGuard('jwt'))
   @Get()
-  async findAll() {
+  async findAll(@Req() req:any) {
+    if(!req.user.is.admin){
+      throw new UnauthorizedException('Access denied.');
+    }
     return await this.usersService.findAll();
   }
 

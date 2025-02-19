@@ -27,16 +27,19 @@ export class TaskController {
     return await this.taskService.findOneOrFail(id);
   }
 
+  @UseGuards(AuthGuard('jwt'))
   @Put(':id')
   async update(@Param('id') id: string, @Body() data: UpdateTaskDto) {
     return await this.taskService.update(id, data);
   }
 
+  @UseGuards(AuthGuard('jwt'))
   @Patch(':id')
   async partialUpdate(@Param('id') id: string, @Body() data: UpdateTaskDto) {
     return await this.taskService.update(id, data);
   }
-
+  
+  @UseGuards(AuthGuard('jwt'))
   @Delete(':id')
   async remove(@Param('id') id: string) {
     return await this.taskService.remove(id);
