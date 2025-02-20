@@ -7,10 +7,10 @@
   "license": "UNLICENSED",
   "main": "dist/main.js",
   "scripts": {
-    "build": "nest build --webpack false",
+    "build": "nest build ",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "node dist/main.js",
-    "vercel-build": "yarn prisma generate && nest build --webpack false",
+    "vercel-build": "yarn prisma generate && nest build ",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main.js",
