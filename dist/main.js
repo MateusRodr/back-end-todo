@@ -14,7 +14,7 @@ async function bootstrap() {
         transform: true
     }));
     app.use(cors({
-        origin: true,
+        origin: '*',
         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
         credentials: true,
     }));

@@ -1,20 +1,21 @@
 {
-    "version":2,
+    "version": 2,
     "builds": [
         {
-            "src":"package.json",
-            "use":"@vercel/node"
+            "src": "dist/main.js",
+            "use": "@vercel/node",
+            "config": { "maxLambdaSize": "50mb" }
         }
     ],
     "routes": [
         {
-            "src":"/(.*)",
-            "dest":"/dist/main.js"
+            "src": "/(.*)",
+            "dest": "dist/main"
         }
     ],
-    "env":{
-        "DATABASE_URL":"postgresql://postgres:T76eqz%23Rf6BL_Vy@db.pwcezqjgkdrdtnopeqda.supabase.co:5432/todo",
-        "JWT_SECRET_KEY":"iTQ3iu/yqJulbG+9MSMQxxBDTH2lOSaDvu/QzE2OcGg=",
-        "PORT":3000
+    "env": {
+        "DATABASE_URL": "postgresql://postgres:T76eqz%23Rf6BL_Vy@db.pwcezqjgkdrdtnopeqda.supabase.co:5432/todo",
+        "JWT_SECRET_KEY": "iTQ3iu/yqJulbG+9MSMQxxBDTH2lOSaDvu/QzE2OcGg=",
+        "PORT": "3000"
     }
 }

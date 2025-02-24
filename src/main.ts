@@ -18,7 +18,7 @@ async function bootstrap() {
 
   // Configuração CORS mais específica
   app.use(cors({
-    origin: true,
+    origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
   }));
@@ -29,7 +29,7 @@ async function bootstrap() {
   const port = process.env.PORT || 3000;
   console.log(`Application starting on port ${port}`);
   
-  await app.listen(port, '0.0.0.0');
+  await app.listen(3000, '0.0.0.0');
   console.log(`Application is running on: ${await app.getUrl()}`);
 }
 
