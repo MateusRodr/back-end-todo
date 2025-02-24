@@ -22,6 +22,7 @@ export class TaskController {
     return await this.taskService.findAll(userId);
   }
 
+  @UseGuards(AuthGuard('jwt'))
   @Get(':id')
   async findOneOrFail(@Param('id') id: string) {
     return await this.taskService.findOneOrFail(id);

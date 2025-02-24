@@ -16,7 +16,7 @@ export class UsersController {
   @UseGuards(AuthGuard('jwt'))
   @Get()
   async findAll(@Req() req:any) {
-    if(!req.user.is.admin){
+    if(!req.user.isAdmin){
       throw new UnauthorizedException('Access denied.');
     }
     return await this.usersService.findAll();
