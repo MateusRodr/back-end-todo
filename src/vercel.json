@@ -7,11 +7,11 @@
             "config": { "maxLambdaSize": "50mb" }
         }
     ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "dist/main"
-        }
+"routes": [
+    {
+        "src": "/api/(.*)",
+        "dest": "dist/main.js"
+    }
     ],
     "env": {
         "DATABASE_URL": "postgresql://postgres:T76eqz%23Rf6BL_Vy@db.pwcezqjgkdrdtnopeqda.supabase.co:5432/todo",
