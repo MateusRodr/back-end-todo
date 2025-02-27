@@ -13,7 +13,6 @@ exports.AuthService = void 0;
 const common_1 = require("@nestjs/common");
 const jwt_1 = require("@nestjs/jwt");
 const users_service_1 = require("../users/users.service");
-const bcrypt = require("bcrypt");
 let AuthService = class AuthService {
     constructor(userService, jwtService) {
         this.userService = userService;
@@ -32,7 +31,7 @@ let AuthService = class AuthService {
     }
     async validateUser(email, password) {
         const user = await this.userService.findOneOrFail({ email });
-        if (!user || !(await bcrypt.compare(password, user.password))) {
+        if (!user || password !== user.password) {
             throw new common_1.UnauthorizedException('Invalid credentials');
         }
         return user;

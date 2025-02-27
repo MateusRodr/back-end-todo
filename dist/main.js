@@ -14,7 +14,7 @@ async function bootstrap() {
         transform: true
     }));
     app.use(cors({
-        origin: '*',
+        origin: 'https://todo-henna-nu.vercel.app',
         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
         credentials: true,
     }));

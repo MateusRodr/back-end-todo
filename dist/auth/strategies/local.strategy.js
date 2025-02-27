@@ -27,6 +27,7 @@ let LocalStrategy = class LocalStrategy extends (0, passport_1.PassportStrategy)
         console.log('Validating user:', email);
         const user = await this.authService.validateUser(email, password);
         if (!user) {
+            console.log('User validated:', user);
             throw new common_1.UnauthorizedException(messages_help_1.messageHelp.PASSWORD_OR_EMAil_invalid);
         }
         return user;

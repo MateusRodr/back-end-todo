@@ -26,7 +26,7 @@ let UsersController = class UsersController {
         return await this.usersService.create(data);
     }
     async findAll(req) {
-        if (!req.user.is.admin) {
+        if (!req.user.isAdmin) {
             throw new common_1.UnauthorizedException('Access denied.');
         }
         return await this.usersService.findAll();
