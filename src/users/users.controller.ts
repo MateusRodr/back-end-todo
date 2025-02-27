@@ -13,12 +13,8 @@ export class UsersController {
     return await this.usersService.create(data);
   }
 
-  @UseGuards(AuthGuard('jwt'))
   @Get()
   async findAll(@Req() req:any) {
-    if(!req.user.isAdmin){
-      throw new UnauthorizedException('Access denied.');
-    }
     return await this.usersService.findAll();
   }
 

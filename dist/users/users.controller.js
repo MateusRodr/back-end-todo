@@ -26,9 +26,6 @@ let UsersController = class UsersController {
         return await this.usersService.create(data);
     }
     async findAll(req) {
-        if (!req.user.isAdmin) {
-            throw new common_1.UnauthorizedException('Access denied.');
-        }
         return await this.usersService.findAll();
     }
     async findOne(id) {
@@ -50,7 +47,6 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "create", null);
 __decorate([
-    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),
     (0, common_1.Get)(),
     __param(0, (0, common_1.Req)()),
     __metadata("design:type", Function),
