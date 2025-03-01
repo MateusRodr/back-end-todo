@@ -8,6 +8,7 @@ export class AuthController {
 
 
   @Post('login')
+  @UseGuards(AuthGuard('local')) // Use o guard correto aqui
   async login(@Req() req: any) {
     if (!req.user) {
       throw new UnauthorizedException('Invalid credentials: User not found.');
