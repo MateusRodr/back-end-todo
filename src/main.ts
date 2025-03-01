@@ -16,7 +16,7 @@ async function bootstrap() {
   }));
 
   app.use(cors({
-    origin: ['https://todo-henna-nu.vercel.app', 'https://todo-m9ao68ue2-mateusrodrs-projects.vercel.app'],
+    origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
   }));
